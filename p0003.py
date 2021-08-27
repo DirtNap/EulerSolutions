@@ -1,5 +1,4 @@
 import math
-import typing
 
 from util import prime_generator
 
