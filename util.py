@@ -1,5 +1,6 @@
 import collections
-def prime_generator(upper_limit: int, start: int=2):
+import typing
+def prime_generator(upper_limit: int, start: int=2) -> typing.Generator[int, None, None]:
     """Generate a list of prime numbers, starting with start, which are less than upper_limit."""
     found = collections.defaultdict(list)
     current = start
@@ -13,7 +14,7 @@ def prime_generator(upper_limit: int, start: int=2):
             yield current
         current += 1
 
-def fibonacci_generator(upper_limit: int):
+def fibonacci_generator(upper_limit: int) -> typing.Generator[int, None, None]:
     """Generate the sequence of fibonacci numbers less than upper_limit."""
     memoized = {1: 1, 2: 2}
     def fib(n):
@@ -27,7 +28,7 @@ def fibonacci_generator(upper_limit: int):
         else:
             return
 
-def is_palindrome(s: str):
+def is_palindrome(s: str) -> bool:
     for i in range(len(s) // 2):
         if s[i] != s[-(i + 1)]:
             return False

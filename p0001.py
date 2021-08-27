@@ -1,4 +1,4 @@
-def multiple_sum(limit, *multiples):
+def multiple_sum(limit: int, *multiples: int):
     result = 0
     current = 1
     while current < limit:
@@ -7,7 +7,7 @@ def multiple_sum(limit, *multiples):
         current += 1
     return result
 
-def main():
+def main() -> None:
     print(f'The sum of multiples of 3 and 5 less than 1000 is {multiple_sum(1000, 3, 5)}')
 
 if __name__ == '__main__':

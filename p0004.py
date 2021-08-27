@@ -1,7 +1,7 @@
 import itertools
 from util import is_palindrome
 
-def main():
+def main() -> None:
     three_digit_nums = list(range(999, 99, -1))
     current = 0
     for product in (x * y for (x, y) in itertools.combinations_with_replacement(three_digit_nums, 2)):
