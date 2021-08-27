@@ -13,7 +13,7 @@ def prime_generator(upper_limit: int, start: int=2):
             yield current
         current += 1
 
-def fibonacci_generator(upper_limit):
+def fibonacci_generator(upper_limit: int):
     """Generate the sequence of fibonacci numbers less than upper_limit."""
     memoized = {1: 1, 2: 2}
     def fib(n):
