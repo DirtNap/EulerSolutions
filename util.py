@@ -14,6 +14,7 @@ def prime_generator(upper_limit: int, start: int=2):
         current += 1
 
 def fibonacci_generator(upper_limit):
+    """Generate the sequence of fibonacci numbers less than upper_limit."""
     memoized = {1: 1, 2: 2}
     def fib(n):
         if n in memoized:

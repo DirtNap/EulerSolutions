@@ -1,10 +1,10 @@
 import typing
 
-import util
+from util import fibonacci_generator
 
 def fibonacci_sum(limit: int, filter: typing.Callable=lambda x: True):
     result = 0
-    for current in util.fibonacci_generator(limit):
+    for current in fibonacci_generator(limit):
         if filter(current):
             result += current
     return result
