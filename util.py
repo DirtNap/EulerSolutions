@@ -1,5 +1,16 @@
 import collections
 import typing
+
+#### Check Functions
+
+def is_palindrome(s: str) -> bool:
+    """Returns True if s is a palidrome."""
+    for i in range(len(s) // 2):
+        if s[i] != s[-(i + 1)]:
+            return False
+    return True
+
+#### Sequence Generators
 def prime_generator(upper_limit: int, start: int=2) -> typing.Generator[int, None, None]:
     """Generate a list of prime numbers, starting with start, which are less than upper_limit."""
     found = collections.defaultdict(list)
@@ -36,15 +47,28 @@ def perfect_power_generator(exponent: int, upper_limit: typing.Optional[int]=Non
         yield result
     return None
 
-def is_palindrome(s: str) -> bool:
-    for i in range(len(s) // 2):
-        if s[i] != s[-(i + 1)]:
-            return False
-    return True
+### Sequence Utilities
 
 def grid_slicer(grid: typing.Sequence[typing.Sequence[typing.Any]], 
                 start_x: int, start_y: int, count: int, 
                 x: int=0, y: int=0) -> typing.List[typing.Any]:
+    """Return a slice of a grid (2-d sequence) in any direction.
+    
+    Arguments:
+      grid:     A 2-d sequence
+      start_x:  Initial column position in the grid
+      start_y:  Initial row position in the grid
+      count:    Desired length of the returned slice
+      x:        Integer by which to increment the x position to build the slice.
+      y:        Integer by which to increment the y position to build the slice.
+    Returns:
+      A sequence of elements of the grid up to count in length.  If incrementing according
+      to x or y would overflow the grid boundaries, incrementation is stopped and the slice
+      is returned as is.
+    Raises:
+      ValueError:  When count, x, or y are not appropriate values for generating a slice,
+                   or when (start_x, start_y) is not a valid position on the grid.
+    """
     if count < 1 or all((x == 0, y == 0)):
         raise ValueError(f'Can not slice grid with count {count}, x increment {x}, and y increment {y}.')
     row_max = len(grid) - 1
